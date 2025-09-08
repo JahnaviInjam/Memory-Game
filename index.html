@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Memory Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="logo">Memory</h1>
+    <div class="controls">
+      <button id="btnRestart" class="btn btn-secondary">Restart</button>
+      <button id="btnNewGame" class="btn btn-primary">New Game</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="board-wrap">
+      <div id="gameBoard" class="game-board" aria-live="polite"></div>
+    </section>
+
+    <aside id="scorePanel" class="panel">
+      <!-- Solo & multiplayer panels are injected here -->
+    </aside>
+  </main>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal open" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <h2 id="modalTitle" class="modal-title">New Game</h2>
+
+      <div class="form-group">
+        <label class="group-label">Select Theme</label>
+        <div class="seg">
+          <input type="radio" id="theme-icons" name="theme" value="icons" checked />
+          <label for="theme-icons">Icons</label>
+          <input type="radio" id="theme-numbers" name="theme" value="numbers" />
+          <label for="theme-numbers">Numbers</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="group-label">Number of Players</label>
+        <div class="seg">
+          <input type="radio" id="p1" name="players" value="1" checked />
+          <label for="p1">1</label>
+          <input type="radio" id="p2" name="players" value="2" />
+          <label for="p2">2</label>
+          <input type="radio" id="p3" name="players" value="3" />
+          <label for="p3">3</label>
+          <input type="radio" id="p4" name="players" value="4" />
+          <label for="p4">4</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="group-label">Grid Size</label>
+        <div class="seg">
+          <input type="radio" id="g4" name="grid" value="4" checked />
+          <label for="g4">4×4</label>
+          <input type="radio" id="g6" name="grid" value="6" />
+          <label for="g6">6×6</label>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="btnStart" class="btn btn-primary">Start Game</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Win Modal -->
+  <div id="winModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="winTitle">
+    <div class="modal-card">
+      <h2 id="winTitle" class="modal-title">Game Over 🎉</h2>
+      <div id="winSummary" class="summary"></div>
+      <div class="modal-actions">
+        <button id="btnPlayAgain" class="btn btn-primary">Play Again</button>
+        <button id="btnChangeSettings" class="btn btn-secondary">Change Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
